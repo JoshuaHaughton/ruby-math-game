@@ -31,6 +31,7 @@ class Game
   def play
     puts "It's #{self.whichTurn}'s turn!"
     self.question
+    self.scoreCheck
     self.changeTurns
   end
 
@@ -54,9 +55,9 @@ class Game
 
   def wrongAnswer
     if @turn == 1 
-      p1_lives -= 1
+      @p1_lives -= 1
     else
-      p2_lives -= 1
+      @p2_lives -= 1
   end
 end
 
@@ -70,10 +71,15 @@ end
 
     if num1 + num2 != answer
       puts "#{@asker}: Seriously? No!"
+      self.wrongAnswer
     else
       puts "#{@asker}: YES! You are correct."
     end
 
+  end
+
+  def scoreCheck
+    puts "#{@player1}: #{@p1_lives}/3 #{@player2}: #{@p2_lives}/3"
   end
 
 end
