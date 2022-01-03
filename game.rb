@@ -29,10 +29,17 @@ class Game
   # methods
 
   def play
+
+    while @p1_lives.to_i && @p2_lives.to_i > 0
+    puts "----- NEW TURN -----"
     puts "It's #{self.whichTurn}'s turn!"
     self.question
     self.scoreCheck
     self.changeTurns
+    end
+
+    puts "----- GAME OVER -----"
+
   end
 
   def changeTurns
@@ -63,17 +70,20 @@ end
 
 
   def question
+
     num1 = rand(20)
     num2 = rand(20)
 
     puts "What does #{num1} plus #{num2} equal?"
-    answer = gets.chomp
+    answer = gets.chomp.to_i
 
     if num1 + num2 != answer
       puts "#{@asker}: Seriously? No!"
+      puts "\n"
       self.wrongAnswer
     else
       puts "#{@asker}: YES! You are correct."
+      puts "\n"
     end
 
   end
