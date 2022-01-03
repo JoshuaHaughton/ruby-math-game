@@ -1,15 +1,6 @@
-require_relative './player'
-
-a = Player.new("Josh")
-b = Player.new("Chris")
-
-puts "Player 1: #{a.name}"
-puts "Player 2: #{b.name}"
-
-
 class Game
 
-  
+
   # constructor
 
   def initialize(player1, player2)
@@ -92,7 +83,3 @@ class Game
 
 
 end
-
-
-game1 = Game.new(a.name, b.name)
-game1.play
