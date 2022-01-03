@@ -1,22 +1,17 @@
-class Player
-  attr_accessor :name
-
-  def initialize(name)
-    @name = name
-  end
-
-end
+require_relative './player'
 
 a = Player.new("Josh")
 b = Player.new("Chris")
 
-puts a.name
-puts b.name
+puts "Player 1: #{a.name}"
+puts "Player 2: #{b.name}"
 
 
 class Game
 
+  
   # constructor
+
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
@@ -42,6 +37,7 @@ class Game
 
   end
 
+
   def changeTurns
     if @turn != 1 
       @turn = 1
@@ -52,6 +48,7 @@ class Game
     end
   end
 
+
   def whichTurn
     if @turn == 1
       @player1
@@ -60,13 +57,14 @@ class Game
     end
   end
 
+
   def wrongAnswer
     if @turn == 1 
       @p1_lives -= 1
     else
       @p2_lives -= 1
+    end
   end
-end
 
 
   def question
@@ -85,12 +83,13 @@ end
       puts "#{@asker}: YES! You are correct."
       puts "\n"
     end
-
   end
+
 
   def scoreCheck
     puts "#{@player1}: #{@p1_lives}/3 #{@player2}: #{@p2_lives}/3"
   end
+
 
 end
 
